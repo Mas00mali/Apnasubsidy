@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 40px;
+    }
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    img {
+      width: 250px;
+      height: 250px;
+      margin: 20px 0;
+    }
+    button {
+      padding: 12px 25px;
+      background: green;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>₹599 Payment Required</h2>
+    <p>कृपया नीचे दिए गए QR Code से Payment करें</p>
+    <img src="qr.jpg/IMG_20250825_105135.jpg" alt="QR Code">
+    <p>Amount: <strong>₹599</strong></p>
+    <button onclick="markPaid()">Done ✅</button>
+  </div>
+
+  <script>
+    // Agar user pehle hi paid hai to direct redirect karo
+    if(localStorage.getItem("paid") === "true") {
+      window.location.href = "redirect.html";
+    }
+
+    function markPaid() {
+      localStorage.setItem("paid", "true"); // User ko paid mark kar do
+      window.location.href = "redirect.html"; // Redirect
+    }
+  </script>
+</body>
+</html>
