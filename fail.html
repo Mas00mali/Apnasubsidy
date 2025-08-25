@@ -2,13 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Failed</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin: 40px; color: red; }
+    body {
+      text-align: center;
+      background: #ffe8e8;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+    .box {
+      background: #fff;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: red;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #d9534f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
-  <h2>❌ Payment Failed</h2>
-  <p>Sorry! Your payment could not be completed.</p>
+  <div class="box">
+    <h1>❌ Payment Failed!</h1>
+    <p>Invalid UTR number. Please try again.</p>
+    <a href="index.html">Try Again</a>
+  </div>
 </body>
 </html>
