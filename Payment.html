@@ -2,34 +2,37 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <title>Payment Page</title>
+  <title>QR Code Payment</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background: #f4f4f4;
-      padding: 40px;
+      background: #f9f9f9;
+      padding: 30px;
     }
-    .box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: inline-block;
+    h2 {
+      color: #333;
     }
     img {
-      width: 250px;
-      height: 250px;
       margin: 20px 0;
+      border: 2px solid #333;
+      border-radius: 12px;
+    }
+    input {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      margin-top: 10px;
     }
     button {
-      padding: 12px 25px;
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 16px;
+      color: white;
       background: green;
-      color: #fff;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
     }
     button:hover {
       background: darkgreen;
@@ -37,24 +40,40 @@
   </style>
 </head>
 <body>
-  <div class="box">
-    <h2>₹599 Payment Required</h2>
-    <p>कृपया नीचे दिए गए QR Code से Payment करें</p>
-    <img src="qr.jpg/IMG_20250825_105135.jpg" alt="QR Code">
-    <p>Amount: <strong>₹599</strong></p>
-    <button onclick="markPaid()">Done ✅</button>
-  </div>
+
+  <h2>UPI Payment QR Code</h2>
+  
+  <!-- QR Code image -->
+  <img src="IMG_20250825_105135.jpg" alt="QR Code" width="250">
+
+  <p><b>Amount:</b> ₹599</p>
+
+  <!-- UTR Input -->
+  <input type="text" id="utr" placeholder="UTR नंबर डालें">
+
+  <!-- WhatsApp Send Button -->
+  <br>
+  <button onclick="sendUTR()">UTR भेजें WhatsApp पर</button>
 
   <script>
-    // Agar user pehle hi paid hai to direct redirect karo
-    if(localStorage.getItem("paid") === "true") {
-      window.location.href = "redirect.html";
-    }
+    function sendUTR() {
+      let utr = document.getElementById("utr").value.trim();
+      if (utr === "") {
+        alert("कृपया UTR नंबर डालें");
+        return;
+      }
 
-    function markPaid() {
-      localStorage.setItem("paid", "true"); // User ko paid mark kar do
-      window.location.href = "redirect.html"; // Redirect
+      // 👇 Yahan apna WhatsApp number daalo
+      let phone = "917318432028";  // +91 ke sath
+      let message = "मेरा UTR नंबर है: " + utr + " (Payment ₹599)";
+
+      // WhatsApp Direct URL
+      let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+      // Open WhatsApp
+      window.open(url, "_blank");
     }
   </script>
+
 </body>
 </html>
