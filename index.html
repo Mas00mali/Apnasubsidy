@@ -1,80 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Page</title>
+  <title>QR Code Payment</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background: #f4f4f4;
-      padding: 20px;
+      background: #f9f9f9;
+      padding: 30px;
     }
-    .container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      max-width: 400px;
-      margin: auto;
+    h2 {
+      color: #333;
     }
     img {
-      width: 250px;
-      margin: 15px 0;
+      margin: 20px 0;
+      border: 2px solid #333;
+      border-radius: 12px;
     }
-    input, button {
-      width: 100%;
+    input {
       padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      width: 250px;
       font-size: 16px;
+      margin-top: 10px;
     }
     button {
-      background: green;
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 16px;
       color: white;
-      font-weight: bold;
+      background: green;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
     }
     button:hover {
       background: darkgreen;
     }
-    .whatsapp {
-      display: inline-block;
-      margin-top: 15px;
-      text-decoration: none;
-      color: white;
-      background: #25d366;
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Scan & Pay</h2>
-    <p>कृपया नीचे दिए गए QR Code को स्कैन करें और पेमेंट करें।</p>
-    <img src="qr.png" alt="QR Code">
-  
-    <h3>UTR / Transaction Number दर्ज करें:</h3>
-    <input type="text" id="utr" placeholder="Enter UTR / Transaction Number">
-    <button onclick="sendUTR()">Submit</button>
 
-    <a class="whatsapp" href="https://wa.me/917318432028" target="_blank">📲 WhatsApp Support</a>
-  </div>
+  <h2>UPI Payment QR Code</h2>
+  
+  <!-- QR Code image -->
+  <img src="IMG_20250825_105135.jpg" alt="QR Code" width="250">
+
+  <p><b>Amount:</b> ₹599</p>
+
+  <!-- UTR Input -->
+  <input type="text" id="utr" placeholder="UTR नंबर डालें">
+
+  <!-- WhatsApp Send Button -->
+  <br>
+  <button onclick="sendUTR()">UTR भेजें WhatsApp पर</button>
 
   <script>
     function sendUTR() {
       let utr = document.getElementById("utr").value.trim();
-      if(utr === ""){
-        alert("कृपया UTR नंबर दर्ज करें");
+      if (utr === "") {
+        alert("कृपया UTR नंबर डालें");
         return;
       }
-      let msg = "नया पेमेंट प्राप्त हुआ ✅%0AUTR नंबर: " + utr;
-      let url = "https://wa.me/917318432028?text=" + msg;
+
+      // 👇 Yahan apna WhatsApp number daalo
+      let phone = "917318432028";  // +91 ke sath
+      let message = "मेरा UTR नंबर है: " + utr + " (Payment ₹599)";
+
+      // WhatsApp Direct URL
+      let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+      // Open WhatsApp
       window.open(url, "_blank");
     }
   </script>
+
 </body>
 </html>
