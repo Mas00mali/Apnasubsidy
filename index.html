@@ -1,177 +1,286 @@
 <!doctype html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mudarabah Plans Dashboard</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mudarabah Plans — Animated</title>
 
 <style>
-body{
-    margin:0;
-    background:#e9f3ff;
-    font-family:Arial;
-    padding:20px;
-}
-h1{
-    text-align:center;
-    color:#0a3ca8;
-    margin-bottom:20px;
-    font-size:26px;
-}
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
-}
-.card{
-    background:white;
-    padding:18px;
-    border-radius:14px;
-    border-top:6px solid #0b63d6;
-    box-shadow:0 6px 16px rgba(0,0,0,0.15);
-    transition:0.2s;
-}
-.card:hover{
-    transform:scale(1.03);
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
-}
-.icon{
-    font-size:46px;
-    text-align:center;
-    margin-bottom:8px;
-}
-.amount{
-    text-align:center;
-    font-size:24px;
-    font-weight:700;
-    color:#0b63d6;
-}
-.fee{
-    text-align:center;
-    font-size:14px;
-    color:#444;
-    margin-top:4px;
-    font-weight:bold;
-}
-.tabs{
-    display:flex;
-    gap:6px;
-    margin-top:10px;
-}
-.tabs button{
-    flex:1;
-    border:1px solid #0b63d6;
-    background:white;
-    color:#0b63d6;
-    padding:6px;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:12px;
-    font-weight:bold;
-}
-.terms{
-    background:#f0f6ff;
-    border-left:4px solid #0b63d6;
-    padding:10px;
-    margin-top:10px;
-    font-size:13px;
-    border-radius:6px;
-    max-height:130px;
-    overflow:auto;
-}
-.apply{
-    margin-top:12px;
-    padding:12px;
-    background:#0b63d6;
-    color:white;
-    width:100%;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:bold;
-}
-.apply:hover{
-    background:#063f8e;
-}
+  :root{
+    --blue:#2266ee;
+    --light:#eef6ff;
+    --card:#ffffff;
+    --muted:#58606a;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--light);font-family:Inter,"Segoe UI",sans-serif;
+    padding:18px;color:#0b1a2f;overflow-x:hidden;
+  }
+
+  /* --- Fade-Up Animation on Page Load --- */
+  @keyframes fadeUp {
+    0% {opacity:0; transform:translateY(30px);}
+    100% {opacity:1; transform:translateY(0);}
+  }
+
+  /* --- Icon Soft Pulse --- */
+  @keyframes pulse {
+    0% {transform:scale(1);}
+    50% {transform:scale(1.10);}
+    100% {transform:scale(1);}
+  }
+
+  /* Ripple on buttons */
+  .apply:active::after {
+    content:"";position:absolute;width:100%;height:100%;border-radius:10px;
+    background:rgba(255,255,255,0.4);left:0;top:0;animation:ripple .4s linear;
+  }
+  @keyframes ripple {
+    from{opacity:1;}
+    to{opacity:0;}
+  }
+
+  h1{color:var(--blue)}
+  header{display:flex;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+
+  /* --- CARDS --- */
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;
+  }
+
+  .card{
+    background:#fff;border-radius:14px;padding:14px;
+    border-top:6px solid rgba(34,102,238,0.12);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    animation:fadeUp .5s ease forwards;
+    position:relative;overflow:hidden;
+    transform:translateY(10px);
+    transition:.25s ease;
+  }
+
+  .card:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:0 18px 40px rgba(34,102,238,0.22);
+  }
+
+  /* --- ICON --- */
+  .icon{
+    width:65px;height:65px;border-radius:12px;
+    background:linear-gradient(135deg,rgba(34,102,238,0.14),rgba(34,102,238,0.05));
+    display:flex;align-items:center;justify-content:center;font-size:32px;
+    transition:.25s;
+  }
+  .card:hover .icon{
+    animation:pulse .6s ease;
+    box-shadow:0 0 20px rgba(34,102,238,0.5);
+  }
+
+  .tier-name{font-weight:900;color:var(--blue);font-size:18px;}
+  .tier-urdu{color:#0f3a6f;font-size:15px;}
+
+  .fee{color:var(--muted);font-size:13px;margin-top:4px}
+
+  .lang-buttons{display:flex;gap:6px;margin-top:10px}
+  .lang-buttons button{
+    flex:1;background:white;border:1px solid rgba(34,102,238,0.18);
+    padding:7px;border-radius:8px;color:var(--blue);cursor:pointer;font-weight:700;
+    transition:.2s;
+  }
+  .lang-buttons button:hover{
+    background:var(--blue);color:white;
+  }
+
+  .terms{
+    background:#f7fbff;padding:10px;margin-top:10px;
+    border-radius:10px;font-size:13px;max-height:130px;overflow:auto;
+    border:1px solid rgba(34,102,238,0.06);
+  }
+
+  .apply{
+    width:100%;margin-top:12px;padding:10px;
+    background:var(--blue);color:white;border-radius:12px;font-weight:900;border:0;
+    cursor:pointer;transition:.2s;position:relative;overflow:hidden;
+  }
+  .apply:hover{
+    background:#1a55cc;
+  }
+
+  /* --- MODAL --- */
+  .modal{
+    position:fixed;left:0;top:0;width:100%;height:100%;
+    background:rgba(10,16,28,0.55);display:none;align-items:center;justify-content:center;
+    z-index:999;
+  }
+  .modal.open{display:flex;animation:fadeUp .3s}
+
+  .modal-card{
+    width:92%;max-width:900px;background:white;border-radius:14px;
+    padding:20px;max-height:90vh;overflow:auto;
+  }
+
+  label{font-size:13px;color:#223}
+  input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #d7dbe9}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+
+  .submit-btn{background:var(--blue);color:white;border:0;padding:10px;border-radius:10px;font-weight:800}
+  .close-btn{background:#eee;border:0;padding:10px;border-radius:10px;font-weight:700;cursor:pointer}
 </style>
 </head>
-
 <body>
 
-<h1>💙 Premium Mudarabah Services Dashboard</h1>
+<header>
+  <h1>💙 Mudarabah Plans (Animated)</h1>
+  <div style="text-align:right">
+    <b style="color:#113c8a">Service Fee: ₹590</b>
+    <div style="font-size:13px;color:#555">Gift Codes = 10% of amount</div>
+  </div>
+</header>
 
-<div class="grid" id="cards"></div>
+<main class="grid" id="plansGrid"></main>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div>
+        <div id="modal-tier" style="font-size:20px;font-weight:900;color:var(--blue);"></div>
+        <div id="modal-amount" style="font-size:24px;font-weight:900;margin-top:4px"></div>
+      </div>
+      <button class="close-btn" id="modalClose">Close</button>
+    </div>
+
+    <form id="applyForm">
+      <div class="grid-2">
+        <div><label>Name</label><input name="name" required></div>
+        <div><label>Mobile</label><input name="mobile" required></div>
+
+        <div><label>Email</label><input name="email"></div>
+        <div><label>PAN</label><input name="pan"></div>
+
+        <div><label>Aadhaar</label><input name="aadhar"></div>
+        <div>
+          <label>Duration</label>
+          <select name="duration"></select>
+        </div>
+
+        <div><label>Account Number</label><input name="acc"></div>
+        <div><label>IFSC</label><input name="ifsc"></div>
+
+        <div>
+          <label>Bank</label>
+          <select name="bank">
+            <option>Jio Payments Bank</option>
+            <option>Yes Bank</option>
+            <option>Kotak Bank</option>
+            <option>IndusInd Bank</option>
+          </select>
+        </div>
+
+        <div><label>Remarks</label><input name="remarks"></div>
+
+        <div style="grid-column:1/-1;">
+          <label>Upload Documents</label>
+          <input type="file" name="files" multiple>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:14px">
+        <button type="button" class="close-btn" id="modalCancel">Cancel</button>
+        <button class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script>
-const iconMap = {
-    5000:"🔵💠",
-    10000:"💎",
-    15000:"💳",
-    20000:"💰",
-    25000:"🪙",
-    30000:"🏦",
-    35000:"🔷",
-    40000:"💵",
-    45000:"💠",
-    50000:"💼",
-    75000:"🟦",
-    100000:"👑",
-    150000:"🚀",
-    200000:"🌟"
+const plans = [
+  {amount:5000, icon:"🔹", urdu:"مقدّمہ", en:"Intro"},
+  {amount:10000, icon:"💠", urdu:"بنیادی", en:"Basic"},
+  {amount:15000, icon:"💳", urdu:"ترقی", en:"Growth"},
+  {amount:20000, icon:"💰", urdu:"فضلت", en:"Value"},
+  {amount:25000, icon:"🪙", urdu:"اضافہ", en:"Plus"},
+  {amount:50000, icon:"💼", urdu:"ممتاز", en:"Premium"},
+  {amount:75000, icon:"🚀", urdu:"اعلی", en:"Elite"},
+  {amount:100000, icon:"👑", urdu:"خاص", en:"Special"},
+  {amount:200000, icon:"🌟", urdu:"خصوصی", en:"Exclusive"}
+];
+
+const terms = {
+  urdu:`یہ مکمل طور پر اسلامی و حلال مضاربہ ہے...`,
+  hindi:`यह इस्लामी और हलाल मुदारबा प्रणाली है...`,
+  en:`This is a Shariah-compliant Mudarabah...`
 };
 
-let amounts = Object.keys(iconMap).map(a=>Number(a));
+const grid=document.getElementById("plansGrid");
 
-function fmt(n){return "₹"+n.toLocaleString();}
+plans.forEach((p,i)=>{
+  const fee=Math.round(p.amount*0.10)+590;
 
-const tc = {
-    hi:`मुदारबाह केवल ऐप होल्डर को मिलेगा।
-ऐप की कीमत ₹590 + राशि का 10% है।
-उपयोगकर्ता को पूरा 10% gift voucher मिलता है।
-वेरिफिकेशन के बाद अंतिम स्वीकृति दी जाएगी।`,
+  const card=document.createElement("div");
+  card.className="card";
+  card.style.animationDelay=(i*0.08)+"s";
+  card.innerHTML=`
+    <div style="display:flex;gap:12px">
+      <div class="icon">${p.icon}</div>
+      <div>
+        <div class="tier-name">${p.en} • ₹${p.amount.toLocaleString()}</div>
+        <div class="tier-urdu">${p.urdu}</div>
+      </div>
+    </div>
 
-    ur:`مضاربہ صرف ایپ ہولڈر کو دیا جائے گا۔
-ایپ قیمت ₹590 + رقم کا 10%۔
-صارف کو مکمل 10% گفٹ ووچر ملے گا۔
-تصدیق کے بعد حتمی منظوری ہوگی۔`,
+    <div class="fee">Estimated Fee + App: ₹${fee.toLocaleString()}</div>
 
-    en:`Mudarabah is for valid app holders only.
-App price = ₹590 + 10% of amount.
-User receives full 10% gift voucher.
-Final approval after verification.`
-};
+    <div class="lang-buttons">
+      <button onclick="showTerms(${i},'urdu')">اردو</button>
+      <button onclick="showTerms(${i},'hindi')">हिन्दी</button>
+      <button onclick="showTerms(${i},'en')">English</button>
+    </div>
 
-const container = document.getElementById("cards");
+    <div class="terms" id="terms-${i}">${terms.urdu}</div>
 
-amounts.forEach(amt=>{
-    let fee = Math.round(amt*0.10)+590;
-
-    let div = document.createElement("div");
-    div.className="card";
-    div.innerHTML = `
-        <div class="icon">${iconMap[amt]}</div>
-
-        <div class="amount">${fmt(amt)}</div>
-        <div class="fee">Total (App + Fee): <b>${fmt(fee)}</b></div>
-
-        <div class="tabs">
-            <button onclick="setTC(${amt},'hi')">Hindi</button>
-            <button onclick="setTC(${amt},'ur')">Urdu</button>
-            <button onclick="setTC(${amt},'en')">English</button>
-        </div>
-
-        <div class="terms" id="tc-${amt}">
-            ${tc.hi}
-        </div>
-
-        <button class="apply">Apply Now</button>
-    `;
-    container.appendChild(div);
+    <button class="apply" onclick="openModal(${i})">Apply Now</button>
+  `;
+  grid.appendChild(card);
 });
 
-function setTC(amount,lang){
-    document.getElementById("tc-"+amount).innerText = tc[lang];
+function showTerms(i,lang){
+  document.getElementById("terms-"+i).innerText=terms[lang];
+}
+
+const modal=document.getElementById("modal");
+const modalClose=document.getElementById("modalClose");
+const modalCancel=document.getElementById("modalCancel");
+const modalTier=document.getElementById("modal-tier");
+const modalAmount=document.getElementById("modal-amount");
+const applyForm=document.getElementById("applyForm");
+
+function openModal(i){
+  const p=plans[i];
+  modal.classList.add("open");
+  modalTier.innerText=p.urdu+" — "+p.en;
+  modalAmount.innerText="₹"+p.amount.toLocaleString();
+  applyForm.dataset.amount=p.amount;
+}
+
+modalClose.onclick=()=>closeModal();
+modalCancel.onclick=()=>closeModal();
+function closeModal(){modal.classList.remove("open");}
+
+const durSel=applyForm.querySelector("select[name='duration']");
+for(let m=1;m<=18;m++){
+  const opt=document.createElement("option");
+  opt.value=m;opt.text=m+" month";
+  durSel.appendChild(opt);
+}
+
+applyForm.onsubmit=function(e){
+  e.preventDefault();
+  alert("Application submitted (demo). Backend connect later.");
+  closeModal();
 }
 </script>
 
