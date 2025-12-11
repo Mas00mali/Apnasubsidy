@@ -1,286 +1,287 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Mudarabah Plans — Animated</title>
+<meta charset="UTF-8">
+<title>Mudarabah Halal Partnership Plans</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-  :root{
-    --blue:#2266ee;
-    --light:#eef6ff;
-    --card:#ffffff;
-    --muted:#58606a;
-  }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #eef6ff;
+    margin: 0;
+    padding: 0;
+}
 
-  *{box-sizing:border-box;}
-  body{
-    margin:0;background:var(--light);font-family:Inter,"Segoe UI",sans-serif;
-    padding:18px;color:#0b1a2f;overflow-x:hidden;
-  }
+.header {
+    background: #0057ff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
 
-  /* --- Fade-Up Animation on Page Load --- */
-  @keyframes fadeUp {
-    0% {opacity:0; transform:translateY(30px);}
-    100% {opacity:1; transform:translateY(0);}
-  }
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px;
+}
 
-  /* --- Icon Soft Pulse --- */
-  @keyframes pulse {
-    0% {transform:scale(1);}
-    50% {transform:scale(1.10);}
-    100% {transform:scale(1);}
-  }
+.card {
+    width: 290px;
+    background: white;
+    margin: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
+    padding: 20px;
+    text-align: center;
+    transition: transform .3s;
+    border-top: 5px solid #0057ff;
+}
 
-  /* Ripple on buttons */
-  .apply:active::after {
-    content:"";position:absolute;width:100%;height:100%;border-radius:10px;
-    background:rgba(255,255,255,0.4);left:0;top:0;animation:ripple .4s linear;
-  }
-  @keyframes ripple {
-    from{opacity:1;}
-    to{opacity:0;}
-  }
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+}
 
-  h1{color:var(--blue)}
-  header{display:flex;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+.icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+    animation: bounce 1.4s infinite;
+}
 
-  /* --- CARDS --- */
-  .grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;
-  }
+@keyframes bounce {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-8px);}
+    100% {transform: translateY(0);}
+}
 
-  .card{
-    background:#fff;border-radius:14px;padding:14px;
-    border-top:6px solid rgba(34,102,238,0.12);
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    animation:fadeUp .5s ease forwards;
-    position:relative;overflow:hidden;
-    transform:translateY(10px);
-    transition:.25s ease;
-  }
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #003399;
+}
 
-  .card:hover{
-    transform:translateY(-8px) scale(1.03);
-    box-shadow:0 18px 40px rgba(34,102,238,0.22);
-  }
+.level {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #0044aa;
+}
 
-  /* --- ICON --- */
-  .icon{
-    width:65px;height:65px;border-radius:12px;
-    background:linear-gradient(135deg,rgba(34,102,238,0.14),rgba(34,102,238,0.05));
-    display:flex;align-items:center;justify-content:center;font-size:32px;
-    transition:.25s;
-  }
-  .card:hover .icon{
-    animation:pulse .6s ease;
-    box-shadow:0 0 20px rgba(34,102,238,0.5);
-  }
+.btn {
+    padding: 10px 18px;
+    margin-top: 10px;
+    font-size: 15px;
+    background: #0057ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-  .tier-name{font-weight:900;color:var(--blue);font-size:18px;}
-  .tier-urdu{color:#0f3a6f;font-size:15px;}
+.btn:hover {
+    background: #0037aa;
+}
 
-  .fee{color:var(--muted);font-size:13px;margin-top:4px}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+}
 
-  .lang-buttons{display:flex;gap:6px;margin-top:10px}
-  .lang-buttons button{
-    flex:1;background:white;border:1px solid rgba(34,102,238,0.18);
-    padding:7px;border-radius:8px;color:var(--blue);cursor:pointer;font-weight:700;
-    transition:.2s;
-  }
-  .lang-buttons button:hover{
-    background:var(--blue);color:white;
-  }
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+}
 
-  .terms{
-    background:#f7fbff;padding:10px;margin-top:10px;
-    border-radius:10px;font-size:13px;max-height:130px;overflow:auto;
-    border:1px solid rgba(34,102,238,0.06);
-  }
-
-  .apply{
-    width:100%;margin-top:12px;padding:10px;
-    background:var(--blue);color:white;border-radius:12px;font-weight:900;border:0;
-    cursor:pointer;transition:.2s;position:relative;overflow:hidden;
-  }
-  .apply:hover{
-    background:#1a55cc;
-  }
-
-  /* --- MODAL --- */
-  .modal{
-    position:fixed;left:0;top:0;width:100%;height:100%;
-    background:rgba(10,16,28,0.55);display:none;align-items:center;justify-content:center;
-    z-index:999;
-  }
-  .modal.open{display:flex;animation:fadeUp .3s}
-
-  .modal-card{
-    width:92%;max-width:900px;background:white;border-radius:14px;
-    padding:20px;max-height:90vh;overflow:auto;
-  }
-
-  label{font-size:13px;color:#223}
-  input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #d7dbe9}
-
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  @media(max-width:700px){.grid-2{grid-template-columns:1fr}}
-
-  .submit-btn{background:var(--blue);color:white;border:0;padding:10px;border-radius:10px;font-weight:800}
-  .close-btn{background:#eee;border:0;padding:10px;border-radius:10px;font-weight:700;cursor:pointer}
+.close {
+    float: right;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
 </style>
 </head>
+
 <body>
 
-<header>
-  <h1>💙 Mudarabah Plans (Animated)</h1>
-  <div style="text-align:right">
-    <b style="color:#113c8a">Service Fee: ₹590</b>
-    <div style="font-size:13px;color:#555">Gift Codes = 10% of amount</div>
-  </div>
-</header>
+<div class="header">💠 Mudarabah – 100% Halal Profit Sharing Plans 💠</div>
 
-<main class="grid" id="plansGrid"></main>
+<div class="card-container">
 
-<!-- Modal -->
-<div class="modal" id="modal">
-  <div class="modal-card">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-      <div>
-        <div id="modal-tier" style="font-size:20px;font-weight:900;color:var(--blue);"></div>
-        <div id="modal-amount" style="font-size:24px;font-weight:900;margin-top:4px"></div>
-      </div>
-      <button class="close-btn" id="modalClose">Close</button>
-    </div>
+<!-- CARD LIST - 9 Plans -->
 
-    <form id="applyForm">
-      <div class="grid-2">
-        <div><label>Name</label><input name="name" required></div>
-        <div><label>Mobile</label><input name="mobile" required></div>
-
-        <div><label>Email</label><input name="email"></div>
-        <div><label>PAN</label><input name="pan"></div>
-
-        <div><label>Aadhaar</label><input name="aadhar"></div>
-        <div>
-          <label>Duration</label>
-          <select name="duration"></select>
-        </div>
-
-        <div><label>Account Number</label><input name="acc"></div>
-        <div><label>IFSC</label><input name="ifsc"></div>
-
-        <div>
-          <label>Bank</label>
-          <select name="bank">
-            <option>Jio Payments Bank</option>
-            <option>Yes Bank</option>
-            <option>Kotak Bank</option>
-            <option>IndusInd Bank</option>
-          </select>
-        </div>
-
-        <div><label>Remarks</label><input name="remarks"></div>
-
-        <div style="grid-column:1/-1;">
-          <label>Upload Documents</label>
-          <input type="file" name="files" multiple>
-        </div>
-      </div>
-
-      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:14px">
-        <button type="button" class="close-btn" id="modalCancel">Cancel</button>
-        <button class="submit-btn">Submit</button>
-      </div>
-    </form>
-  </div>
+<!-- 1 -->
+<div class="card">
+<div class="icon">💎</div>
+<div class="price">₹5,000</div>
+<div class="level">مقدمہ (Mukaddima)</div>
+<button class="btn" onclick="openModal(1)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
 </div>
 
+<!-- 2 -->
+<div class="card">
+<div class="icon">⭐</div>
+<div class="price">₹10,000</div>
+<div class="level">مقدمہ (Mukaddima)</div>
+<button class="btn" onclick="openModal(1)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
+</div>
+
+<!-- 3 -->
+<div class="card">
+<div class="icon">✨</div>
+<div class="price">₹15,000</div>
+<div class="level">فضیلت (Fazeelat)</div>
+<button class="btn" onclick="openModal(2)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<div class="icon">🌙</div>
+<div class="price">₹20,000</div>
+<div class="level">فضیلت (Fazeelat)</div>
+<button class="btn" onclick="openModal(2)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+</div>
+
+<!-- 5 -->
+<div class="card">
+<div class="icon">🔥</div>
+<div class="price">₹25,000</div>
+<div class="level">ممتاز (Mumtaz)</div>
+<button class="btn" onclick="openModal(3)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<div class="icon">🏆</div>
+<div class="price">₹50,000</div>
+<div class="level">ممتاز (Mumtaz)</div>
+<button class="btn" onclick="openModal(3)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<div class="icon">👑</div>
+<div class="price">₹75,000</div>
+<div class="level">خصوصی (Khasoosi)</div>
+<button class="btn" onclick="openModal(4)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<div class="icon">💠</div>
+<div class="price">₹100,000</div>
+<div class="level">خصوصی (Khasoosi)</div>
+<button class="btn" onclick="openModal(4)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<div class="icon">🌟</div>
+<div class="price">₹200,000</div>
+<div class="level">خصوصی (Khasoosi)</div>
+<button class="btn" onclick="openModal(4)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
+</div>
+
+</div>
+
+
+
+<!-- MODAL -->
+<div class="modal" id="modalBox">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+
+<h2 style="text-align:center;">📜 Terms & Conditions</h2>
+<div id="modalText"></div>
+
+</div>
+</div>
+
+
+
 <script>
-const plans = [
-  {amount:5000, icon:"🔹", urdu:"مقدّمہ", en:"Intro"},
-  {amount:10000, icon:"💠", urdu:"بنیادی", en:"Basic"},
-  {amount:15000, icon:"💳", urdu:"ترقی", en:"Growth"},
-  {amount:20000, icon:"💰", urdu:"فضلت", en:"Value"},
-  {amount:25000, icon:"🪙", urdu:"اضافہ", en:"Plus"},
-  {amount:50000, icon:"💼", urdu:"ممتاز", en:"Premium"},
-  {amount:75000, icon:"🚀", urdu:"اعلی", en:"Elite"},
-  {amount:100000, icon:"👑", urdu:"خاص", en:"Special"},
-  {amount:200000, icon:"🌟", urdu:"خصوصی", en:"Exclusive"}
-];
+function openModal(type) {
+    let text = "";
 
-const terms = {
-  urdu:`یہ مکمل طور پر اسلامی و حلال مضاربہ ہے...`,
-  hindi:`यह इस्लामी और हलाल मुदारबा प्रणाली है...`,
-  en:`This is a Shariah-compliant Mudarabah...`
-};
+    // TYPE 1
+    if (type === 1) {
+        text = `
+<h3>🌙 اردو:</h3>
+<p>یہ مضاربہ مکمل طور پر شریعت کے اصولوں پر مبنی ایک جائز اور حلال کاروباری شراکت ہے۔ اس میں کسی قسم کا سود، فکسڈ منافع یا غیر شرعی فائدہ شامل نہیں ہوتا…</p>
 
-const grid=document.getElementById("plansGrid");
+<h3>🕌 हिन्दी (उर्दू लहज़ा):</h3>
+<p>ये पूरा सिस्टम शरई उसूलों पर क़ायम एक हलाल बिज़नेस पार्टनरशिप है। इसमें ना कोई सूद है, ना फिक्स रिटर्न, ना ग़ैर-शरई फ़ायदा…</p>
 
-plans.forEach((p,i)=>{
-  const fee=Math.round(p.amount*0.10)+590;
+<h3>📘 English:</h3>
+<p>This plan is a 100% halal Islamic Mudarabah partnership. There is no interest, no fixed return and no unlawful income involved…</p>
+        `;
+    }
 
-  const card=document.createElement("div");
-  card.className="card";
-  card.style.animationDelay=(i*0.08)+"s";
-  card.innerHTML=`
-    <div style="display:flex;gap:12px">
-      <div class="icon">${p.icon}</div>
-      <div>
-        <div class="tier-name">${p.en} • ₹${p.amount.toLocaleString()}</div>
-        <div class="tier-urdu">${p.urdu}</div>
-      </div>
-    </div>
+    // TYPE 2
+    if (type === 2) {
+        text = `
+<h3>🌙 اردو:</h3>
+<p>سرمایہ صرف حلال کاروبار میں لگایا جاتا ہے۔ ہر سرمایہ کار کو مکمل اعتماد دیا جاتا ہے کہ رقم محفوظ اور شریعت کے مطابق استعمال ہوگی…</p>
 
-    <div class="fee">Estimated Fee + App: ₹${fee.toLocaleString()}</div>
+<h3>🕌 हिन्दी (उर्दू अंदाज़):</h3>
+<p>रक़म सिर्फ़ हलाल बिज़नेस में इस्तेमाल होती है। यूज़र को पूरा इत्मीनान दिया जाता है कि उसकी अमानत महफ़ूज़ और शरीअत के मुताबिक लगेगी…</p>
 
-    <div class="lang-buttons">
-      <button onclick="showTerms(${i},'urdu')">اردو</button>
-      <button onclick="showTerms(${i},'hindi')">हिन्दी</button>
-      <button onclick="showTerms(${i},'en')">English</button>
-    </div>
+<h3>📘 English:</h3>
+<p>Your money is used only in halal business operations. Investor safety and Shariah compliance are fully ensured…</p>
+        `;
+    }
 
-    <div class="terms" id="terms-${i}">${terms.urdu}</div>
+    // TYPE 3
+    if (type === 3) {
+        text = `
+<h3>🌙 اردو:</h3>
+<p>منافع کاروبار کے حساب سے ہوگا۔ یہاں کوئی گارنٹی، فکس منافع یا زبردستی کی شرط شامل نہیں ہوتی۔ نقصان کی صورت میں شراکت داری کے اصول لاگو ہوتے ہیں…</p>
 
-    <button class="apply" onclick="openModal(${i})">Apply Now</button>
-  `;
-  grid.appendChild(card);
-});
+<h3>🕌 हिन्दी (उर्दू टोन):</h3>
+<p>मुनाफ़ा कारोबार के हिसाब से तै होता है। यहाँ कोई फिक्स कमाई या गारंटी नहीं दी जाती। नुक़सान की सूरत में शरीअत के उसूल लागू होते हैं…</p>
 
-function showTerms(i,lang){
-  document.getElementById("terms-"+i).innerText=terms[lang];
+<h3>📘 English:</h3>
+<p>Profit depends on business performance. No guaranteed returns are given. Loss handling follows Islamic partnership rules…</p>
+        `;
+    }
+
+    // TYPE 4
+    if (type === 4) {
+        text = `
+<h3>🌙 اردو:</h3>
+<p>ایپ کی سروس فیس 590 روپے مقرر ہے جس میں مینجمنٹ، سیکیورٹی، اور سسٹم مینٹیننس شامل ہے۔ اس کے ساتھ ہر پلان پر 10٪ کی ویلیو کے مطابق گفٹ ووچر فراہم کیا جاتا ہے…</p>
+
+<h3>🕌 हिन्दी (उर्दू अंदाज़):</h3>
+<p>ऐप की सर्विस फ़ीस 590 रुपए रखी गई है, जिसमें मैनेजमेंट, सिक्योरिटी और सिस्टम मेंटेनेंस शामिल है। हर अमाउंट पर 10% की वैल्यू का गिफ़्ट वाउचर दिया जाता है…</p>
+
+<h3>📘 English:</h3>
+<p>The app service charge is ₹590 which includes management & security costs. Each plan gives a gift voucher equal to 10% of the chosen amount…</p>
+        `;
+    }
+
+    document.getElementById("modalText").innerHTML = text;
+    document.getElementById("modalBox").style.display = "block";
 }
 
-const modal=document.getElementById("modal");
-const modalClose=document.getElementById("modalClose");
-const modalCancel=document.getElementById("modalCancel");
-const modalTier=document.getElementById("modal-tier");
-const modalAmount=document.getElementById("modal-amount");
-const applyForm=document.getElementById("applyForm");
-
-function openModal(i){
-  const p=plans[i];
-  modal.classList.add("open");
-  modalTier.innerText=p.urdu+" — "+p.en;
-  modalAmount.innerText="₹"+p.amount.toLocaleString();
-  applyForm.dataset.amount=p.amount;
-}
-
-modalClose.onclick=()=>closeModal();
-modalCancel.onclick=()=>closeModal();
-function closeModal(){modal.classList.remove("open");}
-
-const durSel=applyForm.querySelector("select[name='duration']");
-for(let m=1;m<=18;m++){
-  const opt=document.createElement("option");
-  opt.value=m;opt.text=m+" month";
-  durSel.appendChild(opt);
-}
-
-applyForm.onsubmit=function(e){
-  e.preventDefault();
-  alert("Application submitted (demo). Backend connect later.");
-  closeModal();
+function closeModal() {
+    document.getElementById("modalBox").style.display = "none";
 }
 </script>
 
