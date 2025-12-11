@@ -1,48 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <title>Payment Page</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
-    #qrPreview { margin: 20px; max-width: 250px; }
-    .btn { padding: 10px 20px; margin: 10px; background: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
-    .btn:hover { background: #0056b3; }
-    input { padding: 10px; width: 250px; margin: 10px; border-radius: 5px; border: 1px solid #ccc; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mudarabah Plans Dashboard</title>
+
+<style>
+body{
+    margin:0;
+    background:#e9f3ff;
+    font-family:Arial;
+    padding:20px;
+}
+h1{
+    text-align:center;
+    color:#0a3ca8;
+    margin-bottom:20px;
+    font-size:26px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+.card{
+    background:white;
+    padding:18px;
+    border-radius:14px;
+    border-top:6px solid #0b63d6;
+    box-shadow:0 6px 16px rgba(0,0,0,0.15);
+    transition:0.2s;
+}
+.card:hover{
+    transform:scale(1.03);
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+.icon{
+    font-size:46px;
+    text-align:center;
+    margin-bottom:8px;
+}
+.amount{
+    text-align:center;
+    font-size:24px;
+    font-weight:700;
+    color:#0b63d6;
+}
+.fee{
+    text-align:center;
+    font-size:14px;
+    color:#444;
+    margin-top:4px;
+    font-weight:bold;
+}
+.tabs{
+    display:flex;
+    gap:6px;
+    margin-top:10px;
+}
+.tabs button{
+    flex:1;
+    border:1px solid #0b63d6;
+    background:white;
+    color:#0b63d6;
+    padding:6px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:bold;
+}
+.terms{
+    background:#f0f6ff;
+    border-left:4px solid #0b63d6;
+    padding:10px;
+    margin-top:10px;
+    font-size:13px;
+    border-radius:6px;
+    max-height:130px;
+    overflow:auto;
+}
+.apply{
+    margin-top:12px;
+    padding:12px;
+    background:#0b63d6;
+    color:white;
+    width:100%;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+.apply:hover{
+    background:#063f8e;
+}
+</style>
 </head>
+
 <body>
-  <h2>Scan & Pay</h2>
-  <p>Please upload your QR code</p>
 
-  <!-- QR Upload -->
-  <input type="file" accept="image/*" id="qrInput">
-  <br>
-  <img id="qrPreview" src="" alt="QR Preview">
+<h1>💙 Premium Mudarabah Services Dashboard</h1>
 
-  <!-- UTR Input -->
-  <br>
-  <input type="text" id="utr" placeholder="Enter UTR Number">
+<div class="grid" id="cards"></div>
 
-  <!-- WhatsApp Support -->
-  <br>
-  <a href="https://wa.me/917318432028" target="_blank" class="btn">WhatsApp Support</a>
+<script>
+const iconMap = {
+    5000:"🔵💠",
+    10000:"💎",
+    15000:"💳",
+    20000:"💰",
+    25000:"🪙",
+    30000:"🏦",
+    35000:"🔷",
+    40000:"💵",
+    45000:"💠",
+    50000:"💼",
+    75000:"🟦",
+    100000:"👑",
+    150000:"🚀",
+    200000:"🌟"
+};
 
-  <script>
-    // Show uploaded QR preview
-    document.getElementById("qrInput").addEventListener("change", function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        document.getElementById("qrPreview").src = URL.createObjectURL(file);
-      }
-    });
+let amounts = Object.keys(iconMap).map(a=>Number(a));
 
-    // Redirect after 3 minutes (180000 ms)
-    setTimeout(() => {
-      // Change link to success.html or fail.html
-      window.location.href = "success.html";
-      // window.location.href = "fail.html";  // (test ke liye)
-    }, 180000);
-  </script>
+function fmt(n){return "₹"+n.toLocaleString();}
+
+const tc = {
+    hi:`मुदारबाह केवल ऐप होल्डर को मिलेगा।
+ऐप की कीमत ₹590 + राशि का 10% है।
+उपयोगकर्ता को पूरा 10% gift voucher मिलता है।
+वेरिफिकेशन के बाद अंतिम स्वीकृति दी जाएगी।`,
+
+    ur:`مضاربہ صرف ایپ ہولڈر کو دیا جائے گا۔
+ایپ قیمت ₹590 + رقم کا 10%۔
+صارف کو مکمل 10% گفٹ ووچر ملے گا۔
+تصدیق کے بعد حتمی منظوری ہوگی۔`,
+
+    en:`Mudarabah is for valid app holders only.
+App price = ₹590 + 10% of amount.
+User receives full 10% gift voucher.
+Final approval after verification.`
+};
+
+const container = document.getElementById("cards");
+
+amounts.forEach(amt=>{
+    let fee = Math.round(amt*0.10)+590;
+
+    let div = document.createElement("div");
+    div.className="card";
+    div.innerHTML = `
+        <div class="icon">${iconMap[amt]}</div>
+
+        <div class="amount">${fmt(amt)}</div>
+        <div class="fee">Total (App + Fee): <b>${fmt(fee)}</b></div>
+
+        <div class="tabs">
+            <button onclick="setTC(${amt},'hi')">Hindi</button>
+            <button onclick="setTC(${amt},'ur')">Urdu</button>
+            <button onclick="setTC(${amt},'en')">English</button>
+        </div>
+
+        <div class="terms" id="tc-${amt}">
+            ${tc.hi}
+        </div>
+
+        <button class="apply">Apply Now</button>
+    `;
+    container.appendChild(div);
+});
+
+function setTC(amount,lang){
+    document.getElementById("tc-"+amount).innerText = tc[lang];
+}
+</script>
+
 </body>
 </html>
