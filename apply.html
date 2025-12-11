@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now - Mudarabah</title>
+<style>
+body{font-family:'Poppins',sans-serif;background:#eef6ff;margin:0;padding:0;}
+header{background:#003399;color:white;text-align:center;padding:20px;font-size:24px;}
+form{background:white;padding:20px;margin:20px auto;border-radius:15px;max-width:700px;box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+form h2{text-align:center;color:#003399;}
+input, select, textarea{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #ccc;}
+label{font-weight:bold;}
+button{padding:12px 20px;border:none;border-radius:10px;background:#003399;color:white;cursor:pointer;margin-top:10px;}
+button:hover{background:#0055cc;}
+</style>
+</head>
+<body>
+
+<header>📝 Apply Now - Mudarabah</header>
+
+<form id="applyForm">
+<h2>Application Form</h2>
+
+<label>Full Name</label>
+<input type="text" name="fullname" required>
+
+<label>Mobile Number</label>
+<input type="tel" name="mobile" required>
+
+<label>Email ID</label>
+<input type="email" name="email" required>
+
+<label>PAN Number</label>
+<input type="text" name="pan" required>
+
+<label>Aadhaar Number</label>
+<input type="text" name="aadhaar" required>
+
+<label>Aadhaar Card (Front)</label>
+<input type="file" name="aadhaarFront" accept="image/*" required>
+
+<label>Aadhaar Card (Back)</label>
+<input type="file" name="aadhaarBack" accept="image/*" required>
+
+<label>PAN Card (Front)</label>
+<input type="file" name="panFront" accept="image/*" required>
+
+<label>PAN Card (Back)</label>
+<input type="file" name="panBack" accept="image/*" required>
+
+<label>Signature</label>
+<input type="file" name="signature" accept="image/*" required>
+
+<h3>Guarantor 1</h3>
+<label>Name</label>
+<input type="text" name="g1name" required>
+<label>Mobile Number</label>
+<input type="tel" name="g1mobile" required>
+<label>PAN/Aadhaar Number</label>
+<input type="text" name="g1id" required>
+<label>Guarantor Aadhaar (Front)</label>
+<input type="file" name="g1aadhaarFront" accept="image/*" required>
+<label>Guarantor Aadhaar (Back)</label>
+<input type="file" name="g1aadhaarBack" accept="image/*" required>
+<label>Guarantor PAN (Front)</label>
+<input type="file" name="g1panFront" accept="image/*" required>
+<label>Guarantor PAN (Back)</label>
+<input type="file" name="g1panBack" accept="image/*" required>
+<label>Guarantor Signature</label>
+<input type="file" name="g1signature" accept="image/*" required>
+
+<h3>Guarantor 2</h3>
+<label>Name</label>
+<input type="text" name="g2name" required>
+<label>Mobile Number</label>
+<input type="tel" name="g2mobile" required>
+<label>PAN/Aadhaar Number</label>
+<input type="text" name="g2id" required>
+<label>Guarantor Aadhaar (Front)</label>
+<input type="file" name="g2aadhaarFront" accept="image/*" required>
+<label>Guarantor Aadhaar (Back)</label>
+<input type="file" name="g2aadhaarBack" accept="image/*" required>
+<label>Guarantor PAN (Front)</label>
+<input type="file" name="g2panFront" accept="image/*" required>
+<label>Guarantor PAN (Back)</label>
+<input type="file" name="g2panBack" accept="image/*" required>
+<label>Guarantor Signature</label>
+<input type="file" name="g2signature" accept="image/*" required>
+
+<label>Father's Name</label>
+<input type="text" name="fatherName" required>
+<label>Father's Mobile Number</label>
+<input type="tel" name="fatherMobile" required>
+
+<label>Current Address</label>
+<textarea name="address" rows="3" required></textarea>
+
+<label>Selected Amount</label>
+<select name="amount" required>
+<option value="5000">₹5,000</option>
+<option value="10000">₹10,000</option>
+<option value="25000">₹25,000</option>
+<option value="50000">₹50,000</option>
+<option value="75000">₹75,000</option>
+<option value="100000">₹1,00,000</option>
+<option value="200000">₹2,00,000</option>
+</select>
+
+<label>Duration (Months)</label>
+<select name="duration" required>
+<option value="">Select</option>
+<option value="1">1 Month</option>
+<option value="2">2 Months</option>
+<option value="3">3 Months</option>
+<option value="4">4 Months</option>
+<option value="5">5 Months</option>
+<option value="6">6 Months</option>
+<option value="7">7 Months</option>
+<option value="8">8 Months</option>
+<option value="9">9 Months</option>
+<option value="10">10 Months</option>
+<option value="11">11 Months</option>
+<option value="12">12 Months</option>
+<option value="13">13 Months</option>
+<option value="14">14 Months</option>
+<option value="15">15 Months</option>
+<option value="16">16 Months</option>
+<option value="17">17 Months</option>
+<option value="18">18 Months</option>
+</select>
+
+<label>Bank Name</label>
+<select name="bank" required>
+<option value="Jio Payment Bank">Jio Payment Bank</option>
+<option value="Yes Bank">Yes Bank</option>
+<option value="Kotak Bank">Kotak Bank</option>
+<option value="IndusInd Bank">IndusInd Bank</option>
+</select>
+
+<label>Account Number</label>
+<input type="text" name="account" required>
+
+<label>IFSC Code</label>
+<input type="text" name="ifsc" required>
+
+<button type="submit">Submit Application</button>
+</form>
+
+<script>
+document.getElementById('applyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Application submitted successfully! (Placeholder)');
+});
+</script>
+
+</body>
+</html>
