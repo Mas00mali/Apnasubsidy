@@ -2,287 +2,168 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mudarabah Halal Partnership Plans</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #eef6ff;
-    margin: 0;
-    padding: 0;
-}
-
-.header {
-    background: #0057ff;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 25px;
-}
-
-.card {
-    width: 290px;
-    background: white;
-    margin: 12px;
-    border-radius: 15px;
-    box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
-    padding: 20px;
-    text-align: center;
-    transition: transform .3s;
-    border-top: 5px solid #0057ff;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
-}
-
-.icon {
-    font-size: 45px;
-    margin-bottom: 15px;
-    animation: bounce 1.4s infinite;
-}
-
-@keyframes bounce {
-    0% {transform: translateY(0);}
-    50% {transform: translateY(-8px);}
-    100% {transform: translateY(0);}
-}
-
-.price {
-    font-size: 30px;
-    font-weight: bold;
-    color: #003399;
-}
-
-.level {
-    font-size: 19px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #0044aa;
-}
-
-.btn {
-    padding: 10px 18px;
-    margin-top: 10px;
-    font-size: 15px;
-    background: #0057ff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #0037aa;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7);
-}
-
-.modal-content {
-    background: white;
-    width: 90%;
-    max-width: 600px;
-    margin: 60px auto;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.close {
-    float: right;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-}
+body { font-family: 'Poppins', sans-serif; background: #eef6ff; margin:0; padding:0; }
+.header { background: #0057ff; color: white; text-align:center; padding:20px; font-size:26px; font-weight:bold;}
+.card-container { display:flex; flex-wrap:wrap; justify-content:center; margin:25px;}
+.card { width:290px; background:white; margin:12px; border-radius:15px; box-shadow:0px 6px 16px rgba(0,0,0,0.15); padding:20px; text-align:center; transition:transform .3s; border-top:5px solid #0057ff;}
+.card:hover { transform:scale(1.05); box-shadow:0px 8px 20px rgba(0,0,0,0.25);}
+.icon { font-size:45px; margin-bottom:15px; animation:bounce 1.4s infinite;}
+@keyframes bounce {0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}
+.price { font-size:30px; font-weight:bold; color:#003399; }
+.level { font-size:19px; font-weight:600; margin-bottom:12px; color:#0044aa;}
+.btn { padding:10px 18px; margin-top:10px; font-size:15px; background:#0057ff; color:white; border:none; border-radius:8px; cursor:pointer; margin-right:6px; transition:0.3s;}
+.btn:hover { background:#0037aa;}
+.modal { display:none; position:fixed; z-index:999; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.7);}
+.modal-content { background:white; width:90%; max-width:700px; margin:60px auto; padding:25px; border-radius:12px; max-height:80vh; overflow-y:auto;}
+.close { float:right; font-size:22px; font-weight:bold; cursor:pointer;}
+.modal h2 { text-align:center; margin-top:0;}
+input, select { width:100%; padding:10px; margin:5px 0 12px; border-radius:8px; border:1px solid #ccc; font-size:14px;}
+label { font-size:14px; color:#003399;}
+.submit-btn { width:100%; padding:12px; background:#0057ff; color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; margin-top:10px;}
+.submit-btn:hover { background:#0037aa;}
 </style>
 </head>
-
 <body>
 
-<div class="header">💠 Mudarabah – 100% Halal Profit Sharing Plans 💠</div>
+<div class="header">💠 Mudarabah – Halal Partnership Plans 💠</div>
 
 <div class="card-container">
+<!-- 9 Amount Cards -->
+<div class="card"><div class="icon">💎</div><div class="price">₹5,000</div><div class="level">مقدمہ (Mukaddima)</div>
+<button class="btn" onclick="openTerms(5000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(5000, 'مقدمہ')">Apply Now</button></div>
 
-<!-- CARD LIST - 9 Plans -->
+<div class="card"><div class="icon">⭐</div><div class="price">₹10,000</div><div class="level">مقدمہ (Mukaddima)</div>
+<button class="btn" onclick="openTerms(10000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(10000, 'مقدمہ')">Apply Now</button></div>
 
-<!-- 1 -->
-<div class="card">
-<div class="icon">💎</div>
-<div class="price">₹5,000</div>
-<div class="level">مقدمہ (Mukaddima)</div>
-<button class="btn" onclick="openModal(1)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<div class="card"><div class="icon">✨</div><div class="price">₹15,000</div><div class="level">فضیلت (Fazeelat)</div>
+<button class="btn" onclick="openTerms(15000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(15000, 'فضیلت')">Apply Now</button></div>
+
+<div class="card"><div class="icon">🌙</div><div class="price">₹20,000</div><div class="level">فضیلت (Fazeelat)</div>
+<button class="btn" onclick="openTerms(20000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(20000, 'فضیلت')">Apply Now</button></div>
+
+<div class="card"><div class="icon">🔥</div><div class="price">₹25,000</div><div class="level">ممتاز (Mumtaz)</div>
+<button class="btn" onclick="openTerms(25000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(25000, 'ممتاز')">Apply Now</button></div>
+
+<div class="card"><div class="icon">🏆</div><div class="price">₹50,000</div><div class="level">ممتاز (Mumtaz)</div>
+<button class="btn" onclick="openTerms(50000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(50000, 'ممتاز')">Apply Now</button></div>
+
+<div class="card"><div class="icon">👑</div><div class="price">₹75,000</div><div class="level">خصوصی (Khasoosi)</div>
+<button class="btn" onclick="openTerms(75000)">ज़रूर पढ़یں / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(75000, 'خصوصی')">Apply Now</button></div>
+
+<div class="card"><div class="icon">💠</div><div class="price">₹100,000</div><div class="level">خصوصی (Khasoosi)</div>
+<button class="btn" onclick="openTerms(100000)">ज़रूर पढ़یں / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(100000, 'خصوصی')">Apply Now</button></div>
+
+<div class="card"><div class="icon">🌟</div><div class="price">₹200,000</div><div class="level">خصوصی (Khasoosi)</div>
+<button class="btn" onclick="openTerms(200000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openApply(200000, 'خصوصی')">Apply Now</button></div>
 </div>
 
-<!-- 2 -->
-<div class="card">
-<div class="icon">⭐</div>
-<div class="price">₹10,000</div>
-<div class="level">مقدمہ (Mukaddima)</div>
-<button class="btn" onclick="openModal(1)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
-</div>
-
-<!-- 3 -->
-<div class="card">
-<div class="icon">✨</div>
-<div class="price">₹15,000</div>
-<div class="level">فضیلت (Fazeelat)</div>
-<button class="btn" onclick="openModal(2)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
-</div>
-
-<!-- 4 -->
-<div class="card">
-<div class="icon">🌙</div>
-<div class="price">₹20,000</div>
-<div class="level">فضیلت (Fazeelat)</div>
-<button class="btn" onclick="openModal(2)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
-</div>
-
-<!-- 5 -->
-<div class="card">
-<div class="icon">🔥</div>
-<div class="price">₹25,000</div>
-<div class="level">ممتاز (Mumtaz)</div>
-<button class="btn" onclick="openModal(3)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
-</div>
-
-<!-- 6 -->
-<div class="card">
-<div class="icon">🏆</div>
-<div class="price">₹50,000</div>
-<div class="level">ممتاز (Mumtaz)</div>
-<button class="btn" onclick="openModal(3)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
-</div>
-
-<!-- 7 -->
-<div class="card">
-<div class="icon">👑</div>
-<div class="price">₹75,000</div>
-<div class="level">خصوصی (Khasoosi)</div>
-<button class="btn" onclick="openModal(4)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
-</div>
-
-<!-- 8 -->
-<div class="card">
-<div class="icon">💠</div>
-<div class="price">₹100,000</div>
-<div class="level">خصوصی (Khasoosi)</div>
-<button class="btn" onclick="openModal(4)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
-</div>
-
-<!-- 9 -->
-<div class="card">
-<div class="icon">🌟</div>
-<div class="price">₹200,000</div>
-<div class="level">خصوصی (Khasoosi)</div>
-<button class="btn" onclick="openModal(4)">ज़रूर पढ़ें / ضرور पढ़یں / Read</button>
-</div>
-
-</div>
-
-
-
-<!-- MODAL -->
-<div class="modal" id="modalBox">
+<!-- Terms Modal -->
+<div class="modal" id="termsModal">
 <div class="modal-content">
-<span class="close" onclick="closeModal()">&times;</span>
-
-<h2 style="text-align:center;">📜 Terms & Conditions</h2>
-<div id="modalText"></div>
-
+<span class="close" onclick="closeTerms()">&times;</span>
+<h2>📜 Terms & Conditions</h2>
+<div id="termsContent" style="font-size:14px;line-height:1.5;"></div>
 </div>
 </div>
 
-
+<!-- Apply Modal -->
+<div class="modal" id="applyModal">
+<div class="modal-content">
+<span class="close" onclick="closeApply()">&times;</span>
+<h2>📝 Apply Form</h2>
+<form id="applyForm">
+<label>Name:</label><input type="text" name="name" required>
+<label>Mobile:</label><input type="text" name="mobile" required>
+<label>Email:</label><input type="email" name="email">
+<label>PAN:</label><input type="text" name="pan">
+<label>Aadhaar:</label><input type="text" name="aadhar">
+<label>Father Name:</label><input type="text" name="father">
+<label>Father Mobile:</label><input type="text" name="fatherMobile">
+<label>Current Address:</label><input type="text" name="address">
+<label>Duration:</label>
+<select name="duration">
+<option value="1">1 Month</option><option value="2">2 Months</option>
+<option value="3">3 Months</option>
+<option value="4">4 Months</option>
+<option value="5">5 Months</option>
+<option value="6">6 Months</option>
+<option value="12">12 Months</option>
+<option value="18">18 Months</option>
+</select>
+<label>Bank Name:</label>
+<select name="bank">
+<option>Jio Payments Bank</option>
+<option>Yes Bank</option>
+<option>Kotak Bank</option>
+<option>IndusInd Bank</option>
+</select>
+<label>Account Number:</label><input type="text" name="acc">
+<label>IFSC:</label><input type="text" name="ifsc">
+<label>Upload Documents:</label><input type="file" name="docs" multiple>
+<button class="submit-btn" type="submit">Submit Application</button>
+</form>
+</div>
+</div>
 
 <script>
-function openModal(type) {
-    let text = "";
+// Full Terms & Conditions with exact Gift Voucher calculation and rules
+const termsTexts = {
+5000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ منتخب رقم ₹5,000۔ Gift Voucher ₹500 (10%)۔ Duration 1–18 Months۔ Shariah compliant Mudarabah۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔ تمام دستاویزات verification required۔</p>
+<h3>🕌 हिन्दी (Urdu tone):</h3><p>App Fee ₹590. Selected Amount ₹5,000. Gift Voucher ₹500. Duration 1–18 Months. Shariah Compliant Mudarabah. Profit Share 70%, Loss 100% on Capital. Documents verified.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹5,000. Gift Voucher ₹500. Duration 1–18 Months. Shariah Compliant Mudarabah. Profit 70%, Loss 100% Rab-ul-Mal. Documents must be verified.</p>`,
 
-    // TYPE 1
-    if (type === 1) {
-        text = `
-<h3>🌙 اردو:</h3>
-<p>یہ مضاربہ مکمل طور پر شریعت کے اصولوں پر مبنی ایک جائز اور حلال کاروباری شراکت ہے۔ اس میں کسی قسم کا سود، فکسڈ منافع یا غیر شرعی فائدہ شامل نہیں ہوتا…</p>
+10000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ منتخب رقم ₹10,000۔ Gift Voucher ₹1,000 (10%)۔ Duration 1–18 Months۔ Shariah compliant Mudarabah۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹10,000. Gift Voucher ₹1,000. Duration 1–18 Months. Shariah compliant. Profit 70%, Loss 100% on Capital.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹10,000. Gift Voucher ₹1,000. Duration 1–18 Months. Shariah Compliant Mudarabah. Profit 70%, Loss 100% Rab-ul-Mal.</p>`,
 
-<h3>🕌 हिन्दी (उर्दू लहज़ा):</h3>
-<p>ये पूरा सिस्टम शरई उसूलों पर क़ायम एक हलाल बिज़नेस पार्टनरशिप है। इसमें ना कोई सूद है, ना फिक्स रिटर्न, ना ग़ैर-शरई फ़ायदा…</p>
+15000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹15,000۔ Gift Voucher ₹1,500 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹15,000. Gift Voucher ₹1,500. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹15,000. Gift Voucher ₹1,500. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
 
-<h3>📘 English:</h3>
-<p>This plan is a 100% halal Islamic Mudarabah partnership. There is no interest, no fixed return and no unlawful income involved…</p>
-        `;
-    }
+20000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹20,000۔ Gift Voucher ₹2,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹20,000. Gift Voucher ₹2,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹20,000. Gift Voucher ₹2,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
 
-    // TYPE 2
-    if (type === 2) {
-        text = `
-<h3>🌙 اردو:</h3>
-<p>سرمایہ صرف حلال کاروبار میں لگایا جاتا ہے۔ ہر سرمایہ کار کو مکمل اعتماد دیا جاتا ہے کہ رقم محفوظ اور شریعت کے مطابق استعمال ہوگی…</p>
+25000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹25,000۔ Gift Voucher ₹2,500 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹25,000. Gift Voucher ₹2,500. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹25,000. Gift Voucher ₹2,500. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
 
-<h3>🕌 हिन्दी (उर्दू अंदाज़):</h3>
-<p>रक़म सिर्फ़ हलाल बिज़नेस में इस्तेमाल होती है। यूज़र को पूरा इत्मीनान दिया जाता है कि उसकी अमानत महफ़ूज़ और शरीअत के मुताबिक लगेगी…</p>
+50000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹50,000۔ Gift Voucher ₹5,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹50,000. Gift Voucher ₹5,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹50,000. Gift Voucher ₹5,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
 
-<h3>📘 English:</h3>
-<p>Your money is used only in halal business operations. Investor safety and Shariah compliance are fully ensured…</p>
-        `;
-    }
+75000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹75,000۔ Gift Voucher ₹7,500 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹75,000. Gift Voucher ₹7,500. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹75,000. Gift Voucher ₹7,500. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
 
-    // TYPE 3
-    if (type === 3) {
-        text = `
-<h3>🌙 اردو:</h3>
-<p>منافع کاروبار کے حساب سے ہوگا۔ یہاں کوئی گارنٹی، فکس منافع یا زبردستی کی شرط شامل نہیں ہوتی۔ نقصان کی صورت میں شراکت داری کے اصول لاگو ہوتے ہیں…</p>
+100000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹100,000۔ Gift Voucher ₹10,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹100,000. Gift Voucher ₹10,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹100,000. Gift Voucher ₹10,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
 
-<h3>🕌 हिन्दी (उर्दू टोन):</h3>
-<p>मुनाफ़ा कारोबार के हिसाब से तै होता है। यहाँ कोई फिक्स कमाई या गारंटी नहीं दी जाती। नुक़सान की सूरत में शरीअत के उसूल लागू होते हैं…</p>
+200000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹200,000۔ Gift Voucher ₹20,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
+<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹200,000. Gift Voucher ₹20,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
+<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹200,000. Gift Voucher ₹20,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`
+};
 
-<h3>📘 English:</h3>
-<p>Profit depends on business performance. No guaranteed returns are given. Loss handling follows Islamic partnership rules…</p>
-        `;
-    }
+function openTerms(amount){document.getElementById('termsContent').innerHTML=termsTexts[amount];document.getElementById('termsModal').style.display='block';}
+function closeTerms(){document.getElementById('termsModal').style.display='none';}
 
-    // TYPE 4
-    if (type === 4) {
-        text = `
-<h3>🌙 اردو:</h3>
-<p>ایپ کی سروس فیس 590 روپے مقرر ہے جس میں مینجمنٹ، سیکیورٹی، اور سسٹم مینٹیننس شامل ہے۔ اس کے ساتھ ہر پلان پر 10٪ کی ویلیو کے مطابق گفٹ ووچر فراہم کیا جاتا ہے…</p>
+function openApply(amount, level){document.getElementById('applyModal').style.display='block';}
+function closeApply(){document.getElementById('applyModal').style.display='none';}
 
-<h3>🕌 हिन्दी (उर्दू अंदाज़):</h3>
-<p>ऐप की सर्विस फ़ीस 590 रुपए रखी गई है, जिसमें मैनेजमेंट, सिक्योरिटी और सिस्टम मेंटेनेंस शामिल है। हर अमाउंट पर 10% की वैल्यू का गिफ़्ट वाउचर दिया जाता है…</p>
-
-<h3>📘 English:</h3>
-<p>The app service charge is ₹590 which includes management & security costs. Each plan gives a gift voucher equal to 10% of the chosen amount…</p>
-        `;
-    }
-
-    document.getElementById("modalText").innerHTML = text;
-    document.getElementById("modalBox").style.display = "block";
-}
-
-function closeModal() {
-    document.getElementById("modalBox").style.display = "none";
-}
+document.getElementById('applyForm').onsubmit=function(e){e.preventDefault();alert("Application submitted (demo). Backend connect later.");closeApply();}
 </script>
 
 </body>
