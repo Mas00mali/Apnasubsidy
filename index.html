@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mudarabah Halal Partnership Plans</title>
+<title>Mudarabah Halal Partnership Dashboard</title>
 <style>
 body { font-family: 'Poppins', sans-serif; background: #eef6ff; margin:0; padding:0; }
 .header { background: #0057ff; color: white; text-align:center; padding:20px; font-size:26px; font-weight:bold;}
@@ -31,140 +31,22 @@ label { font-size:14px; color:#003399;}
 <div class="header">💠 Mudarabah – Halal Partnership Plans 💠</div>
 
 <div class="card-container">
+
 <!-- 9 Amount Cards -->
 <div class="card"><div class="icon">💎</div><div class="price">₹5,000</div><div class="level">مقدمہ (Mukaddima)</div>
-<button class="btn" onclick="openTerms(5000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openTerms('amt5000')">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
 <button class="btn" onclick="openApply(5000, 'مقدمہ')">Apply Now</button></div>
 
 <div class="card"><div class="icon">⭐</div><div class="price">₹10,000</div><div class="level">مقدمہ (Mukaddima)</div>
-<button class="btn" onclick="openTerms(10000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openTerms('amt10000')">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
 <button class="btn" onclick="openApply(10000, 'مقدمہ')">Apply Now</button></div>
 
 <div class="card"><div class="icon">✨</div><div class="price">₹15,000</div><div class="level">فضیلت (Fazeelat)</div>
-<button class="btn" onclick="openTerms(15000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openTerms('amt15000')">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
 <button class="btn" onclick="openApply(15000, 'فضیلت')">Apply Now</button></div>
 
 <div class="card"><div class="icon">🌙</div><div class="price">₹20,000</div><div class="level">فضیلت (Fazeelat)</div>
-<button class="btn" onclick="openTerms(20000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
+<button class="btn" onclick="openTerms('amt20000')">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
 <button class="btn" onclick="openApply(20000, 'فضیلت')">Apply Now</button></div>
 
-<div class="card"><div class="icon">🔥</div><div class="price">₹25,000</div><div class="level">ممتاز (Mumtaz)</div>
-<button class="btn" onclick="openTerms(25000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
-<button class="btn" onclick="openApply(25000, 'ممتاز')">Apply Now</button></div>
-
-<div class="card"><div class="icon">🏆</div><div class="price">₹50,000</div><div class="level">ممتاز (Mumtaz)</div>
-<button class="btn" onclick="openTerms(50000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
-<button class="btn" onclick="openApply(50000, 'ممتاز')">Apply Now</button></div>
-
-<div class="card"><div class="icon">👑</div><div class="price">₹75,000</div><div class="level">خصوصی (Khasoosi)</div>
-<button class="btn" onclick="openTerms(75000)">ज़रूर पढ़یں / ضرور پڑھیں / Read</button>
-<button class="btn" onclick="openApply(75000, 'خصوصی')">Apply Now</button></div>
-
-<div class="card"><div class="icon">💠</div><div class="price">₹100,000</div><div class="level">خصوصی (Khasoosi)</div>
-<button class="btn" onclick="openTerms(100000)">ज़रूर पढ़یں / ضرور پڑھیں / Read</button>
-<button class="btn" onclick="openApply(100000, 'خصوصی')">Apply Now</button></div>
-
-<div class="card"><div class="icon">🌟</div><div class="price">₹200,000</div><div class="level">خصوصی (Khasoosi)</div>
-<button class="btn" onclick="openTerms(200000)">ज़रूर पढ़ें / ضرور پڑھیں / Read</button>
-<button class="btn" onclick="openApply(200000, 'خصوصی')">Apply Now</button></div>
-</div>
-
-<!-- Terms Modal -->
-<div class="modal" id="termsModal">
-<div class="modal-content">
-<span class="close" onclick="closeTerms()">&times;</span>
-<h2>📜 Terms & Conditions</h2>
-<div id="termsContent" style="font-size:14px;line-height:1.5;"></div>
-</div>
-</div>
-
-<!-- Apply Modal -->
-<div class="modal" id="applyModal">
-<div class="modal-content">
-<span class="close" onclick="closeApply()">&times;</span>
-<h2>📝 Apply Form</h2>
-<form id="applyForm">
-<label>Name:</label><input type="text" name="name" required>
-<label>Mobile:</label><input type="text" name="mobile" required>
-<label>Email:</label><input type="email" name="email">
-<label>PAN:</label><input type="text" name="pan">
-<label>Aadhaar:</label><input type="text" name="aadhar">
-<label>Father Name:</label><input type="text" name="father">
-<label>Father Mobile:</label><input type="text" name="fatherMobile">
-<label>Current Address:</label><input type="text" name="address">
-<label>Duration:</label>
-<select name="duration">
-<option value="1">1 Month</option><option value="2">2 Months</option>
-<option value="3">3 Months</option>
-<option value="4">4 Months</option>
-<option value="5">5 Months</option>
-<option value="6">6 Months</option>
-<option value="12">12 Months</option>
-<option value="18">18 Months</option>
-</select>
-<label>Bank Name:</label>
-<select name="bank">
-<option>Jio Payments Bank</option>
-<option>Yes Bank</option>
-<option>Kotak Bank</option>
-<option>IndusInd Bank</option>
-</select>
-<label>Account Number:</label><input type="text" name="acc">
-<label>IFSC:</label><input type="text" name="ifsc">
-<label>Upload Documents:</label><input type="file" name="docs" multiple>
-<button class="submit-btn" type="submit">Submit Application</button>
-</form>
-</div>
-</div>
-
-<script>
-// Full Terms & Conditions with exact Gift Voucher calculation and rules
-const termsTexts = {
-5000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ منتخب رقم ₹5,000۔ Gift Voucher ₹500 (10%)۔ Duration 1–18 Months۔ Shariah compliant Mudarabah۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔ تمام دستاویزات verification required۔</p>
-<h3>🕌 हिन्दी (Urdu tone):</h3><p>App Fee ₹590. Selected Amount ₹5,000. Gift Voucher ₹500. Duration 1–18 Months. Shariah Compliant Mudarabah. Profit Share 70%, Loss 100% on Capital. Documents verified.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹5,000. Gift Voucher ₹500. Duration 1–18 Months. Shariah Compliant Mudarabah. Profit 70%, Loss 100% Rab-ul-Mal. Documents must be verified.</p>`,
-
-10000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ منتخب رقم ₹10,000۔ Gift Voucher ₹1,000 (10%)۔ Duration 1–18 Months۔ Shariah compliant Mudarabah۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹10,000. Gift Voucher ₹1,000. Duration 1–18 Months. Shariah compliant. Profit 70%, Loss 100% on Capital.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹10,000. Gift Voucher ₹1,000. Duration 1–18 Months. Shariah Compliant Mudarabah. Profit 70%, Loss 100% Rab-ul-Mal.</p>`,
-
-15000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹15,000۔ Gift Voucher ₹1,500 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹15,000. Gift Voucher ₹1,500. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹15,000. Gift Voucher ₹1,500. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
-
-20000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹20,000۔ Gift Voucher ₹2,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹20,000. Gift Voucher ₹2,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹20,000. Gift Voucher ₹2,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
-
-25000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹25,000۔ Gift Voucher ₹2,500 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹25,000. Gift Voucher ₹2,500. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹25,000. Gift Voucher ₹2,500. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
-
-50000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹50,000۔ Gift Voucher ₹5,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹50,000. Gift Voucher ₹5,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹50,000. Gift Voucher ₹5,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
-
-75000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹75,000۔ Gift Voucher ₹7,500 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹75,000. Gift Voucher ₹7,500. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹75,000. Gift Voucher ₹7,500. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
-
-100000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹100,000۔ Gift Voucher ₹10,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹100,000. Gift Voucher ₹10,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹100,000. Gift Voucher ₹10,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`,
-
-200000:`<h3>🌙 اردو:</h3><p>App فیس ₹590۔ Selected Amount ₹200,000۔ Gift Voucher ₹20,000 (10%)۔ Duration 1–18 Months۔ Profit Share 70%, Loss 100% Rab-ul-Mal۔</p>
-<h3>🕌 हिन्दी:</h3><p>App Fee ₹590. Amount ₹200,000. Gift Voucher ₹20,000. Profit 70%, Loss 100% on Capital. Duration 1–18 Months.</p>
-<h3>📘 English:</h3><p>App Fee ₹590. Amount ₹200,000. Gift Voucher ₹20,000. Profit 70%, Loss 100% Rab-ul-Mal. Duration 1–18 Months.</p>`
-};
-
-function openTerms(amount){document.getElementById('termsContent').innerHTML=termsTexts[amount];document.getElementById('termsModal').style.display='block';}
-function closeTerms(){document.getElementById('termsModal').style.display='none';}
-
-function openApply(amount, level){document.getElementById('applyModal').style.display='block';}
-function closeApply(){document.getElementById('applyModal').style.display='none';}
-
-document.getElementById('applyForm').onsubmit=function(e){e.preventDefault();alert("Application submitted (demo). Backend connect later.");closeApply();}
-</script>
-
-</body>
-</html>
+<div class="card"><
