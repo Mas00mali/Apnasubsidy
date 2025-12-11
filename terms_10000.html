@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>₹10,000 Mudarabah Terms</title>
+<style>
+body{font-family:'Poppins',sans-serif;background:#eef6ff;padding:20px;}
+h2{text-align:center;color:#003399;margin-bottom:20px;}
+button{margin:5px;padding:10px 15px;border-radius:8px;background:#003399;color:white;border:none;cursor:pointer;}
+button:hover{background:#0055cc;}
+.lang-btns{text-align:center;margin-bottom:20px;}
+.content{background:white;padding:15px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.15);max-height:500px;overflow-y:auto;white-space:pre-line;}
+</style>
+</head>
+<body>
+<h2>📜 ₹10,000 Mudarabah Terms</h2>
+
+<div class="lang-btns">
+<button onclick="changeLang('hindi')">हिन्दी</button>
+<button onclick="changeLang('english')">English</button>
+<button onclick="changeLang('urdu')">اردو</button>
+</div>
+
+<div class="content" id="tcContent">
+<p>Loading terms...</p>
+</div>
+
+<script>
+const terms = {
+"hindi":`💰 ₹10,000 Plan (Hindi)
+यह पूरी तरह इस्लामी व हलाल साझेदारी है। App Fee ₹590। चयनित राशि ₹10,000। अवधि 1–18 Months।
+💹 मुनाफा: Capital Provider 30%, Worker 70%
+🎁 Gift Voucher: ₹1,000 (10%)
+⚖️ नुकसान की जिम्मेदारी: पूँजीदाता
+🔹 शरई नियम: पूँजी Halal होना चाहिए, ईमानदारी और पारदर्शिता आवश्यक।`,
+"english":`💰 ₹10,000 Plan (English)
+This is a fully Islamic & Halal partnership. App Fee ₹590. Selected Amount ₹10,000. Duration 1–18 Months.
+💹 Profit: Capital Provider 30%, Worker 70%
+🎁 Gift Voucher: ₹1,000 (10%)
+⚖️ Loss Responsibility: Capital Provider
+🔹 Shariah Rules: Capital must be Halal, honesty & transparency required.`,
+"urdu":`💰 ₹10,000 Plan (Urdu)
+یہ مکمل اسلامی و حلال شراکت ہے۔ App فیس ₹590۔ منتخب رقم ₹10,000۔ مدت 1–18 Months۔
+💹 منافع: Capital Provider 30%, Worker 70%
+🎁 Gift Voucher: ₹1,000 (10%)
+⚖️ نقصان کی ذمہ داری: Capital Provider
+🔹 شریعت کے اصول: سرمایہ Halal ہونا چاہیے، ایمانداری اور شفافیت ضروری۔`
+};
+
+let currentLang='hindi';
+function changeLang(lang){currentLang=lang;document.getElementById('tcContent').innerText=terms[currentLang];}
+changeLang('hindi');
+</script>
+</body>
+</html>
