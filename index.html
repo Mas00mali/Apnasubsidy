@@ -4,88 +4,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mudarabah Dashboard</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
-body{font-family:'Poppins',sans-serif;background:#e6f0ff;margin:0;padding:0;}
-header{background:#003399;color:white;text-align:center;padding:20px;font-size:24px;}
-.dashboard{display:flex;flex-wrap:wrap;justify-content:center;padding:20px;gap:20px;}
-.card{background:white;width:200px;text-align:center;padding:20px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.15);transition:transform 0.3s;}
-.card:hover{transform:translateY(-10px);}
-.card h3{margin:10px 0;color:#003399;}
-.card img{width:60px;height:60px;margin-bottom:10px;}
-.card button{margin:5px;padding:8px 12px;border-radius:8px;border:none;background:#003399;color:white;cursor:pointer;transition:0.3s;}
-.card button:hover{background:#0055cc;}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#eef6ff;
+}
+.header{
+  background:#003399;
+  color:#fff;
+  padding:18px;
+  text-align:center;
+}
+.container{
+  padding:20px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+.card i{
+  font-size:42px;
+  color:#003399;
+  margin-bottom:10px;
+}
+.card h3{
+  margin:10px 0 5px;
+  color:#222;
+}
+.card p{
+  font-size:14px;
+  color:#555;
+}
+.btn{
+  display:block;
+  margin-top:12px;
+  padding:10px;
+  background:#003399;
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:14px;
+}
+.btn:hover{
+  background:#0055cc;
+}
+.footer{
+  margin-top:30px;
+  text-align:center;
+  font-size:13px;
+  color:#555;
+}
 </style>
 </head>
+
 <body>
 
-<header>📊 Mudarabah Dashboard</header>
+<div class="header">
+  <h2>Mudarabah Investment Dashboard</h2>
+  <p>Shariah Compliant • Halal Partnership</p>
+</div>
 
-<div class="dashboard">
+<div class="container">
 
-<!-- 5,000 -->
+<div class="cards">
+
+<!-- 5000 -->
 <div class="card">
-<img src="https://img.icons8.com/ios-filled/100/0000FF/basic.png" alt="Basic Icon">
-<h3>₹5,000 - Basic</h3>
-<button onclick="window.open('terms_5000.html','_blank')">Jaroor Padhe</button>
-<button onclick="applyNow(5000)">Apply Now</button>
+  <i class="fa-solid fa-wallet"></i>
+  <h3>₹5,000</h3>
+  <p>Starter Plan</p>
+  <a class="btn" href="terms-5000.html">View Terms</a>
+  <a class="btn" href="apply.html">Apply Now</a>
 </div>
 
-<!-- 10,000 -->
+<!-- 10000 -->
 <div class="card">
-<img src="https://img.icons8.com/ios-filled/100/0000FF/silver.png" alt="Silver Icon">
-<h3>₹10,000 - Silver</h3>
-<button onclick="window.open('terms_10000.html','_blank')">Jaroor Padhe</button>
-<button onclick="applyNow(10000)">Apply Now</button>
+  <i class="fa-solid fa-money-bill-wave"></i>
+  <h3>₹10,000</h3>
+  <p>Basic Plan</p>
+  <a class="btn" href="terms-10000.html">View Terms</a>
+  <a class="btn" href="apply.html">Apply Now</a>
 </div>
 
-<!-- 25,000 -->
+<!-- 25000 -->
 <div class="card">
-<img src="https://img.icons8.com/ios-filled/100/0000FF/gold.png" alt="Gold Icon">
-<h3>₹25,000 - Gold</h3>
-<button onclick="window.open('terms_25000.html','_blank')">Jaroor Padhe</button>
-<button onclick="applyNow(25000)">Apply Now</button>
+  <i class="fa-solid fa-coins"></i>
+  <h3>₹25,000</h3>
+  <p>Silver Plan</p>
+  <a class="btn" href="terms-25000.html">View Terms</a>
+  <a class="btn" href="apply.html">Apply Now</a>
 </div>
 
-<!-- 50,000 -->
+<!-- 50000 -->
 <div class="card">
-<img src="https://img.icons8.com/ios-filled/100/0000FF/platinum.png" alt="Platinum Icon">
-<h3>₹50,000 - Platinum</h3>
-<button onclick="window.open('terms_50000.html','_blank')">Jaroor Padhe</button>
-<button onclick="applyNow(50000)">Apply Now</button>
+  <i class="fa-solid fa-gem"></i>
+  <h3>₹50,000</h3>
+  <p>Gold Plan</p>
+  <a class="btn" href="terms-50000.html">View Terms</a>
+  <a class="btn" href="apply.html">Apply Now</a>
 </div>
 
-<!-- 75,000 -->
+<!-- 75000 -->
 <div class="card">
-<img src="https://img.icons8.com/ios-filled/100/0000FF/diamond.png" alt="Diamond Icon">
-<h3>₹75,000 - Diamond</h3>
-<button onclick="window.open('terms_75000.html','_blank')">Jaroor Padhe</button>
-<button onclick="applyNow(75000)">Apply Now</button>
+  <i class="fa-solid fa-crown"></i>
+  <h3>₹75,000</h3>
+  <p>Platinum Plan</p>
+  <a class="btn" href="terms-75000.html">View Terms</a>
+  <a class="btn" href="apply.html">Apply Now</a>
 </div>
 
-<!-- 1,00,000 -->
+<!-- 100000 -->
 <div class="card">
-<img src="https://img.icons8.com/ios-filled/100/0000FF/royal.png" alt="Royal Icon">
-<h3>₹1,00,000 - Royal</h3>
-<button onclick="window.open('terms_100000.html','_blank')">Jaroor Padhe</button>
-<button onclick="applyNow(100000)">Apply Now</button>
+  <i class="fa-solid fa-trophy"></i>
+  <h3>₹1,00,000</h3>
+  <p>Premium Plan</p>
+  <a class="btn" href="terms-100000.html">View Terms</a>
+  <a class="btn" href="apply.html">Apply Now</a>
 </div>
 
-<!-- 2,00,000 -->
+<!-- 200000 -->
 <div class="card">
-<img src="https://img.icons8.com/ios-filled/100/0000FF/elite.png" alt="Elite Icon">
-<h3>₹2,00,000 - Elite</h3>
-<button onclick="window.open('terms_200000.html','_blank')">Jaroor Padhe</button>
-<button onclick="applyNow(200000)">Apply Now</button>
+  <i class="fa-solid fa-chess-king"></i>
+  <h3>₹2,00,000</h3>
+  <p>Elite Plan</p>
+  <a class="btn" href="terms-200000.html">View Terms</a>
+  <a class="btn" href="apply.html">Apply Now</a>
 </div>
 
 </div>
 
-<script>
-function applyNow(amount){
-    // Open apply.html and pass selected amount via URL parameter
-    window.open('apply.html?amount=' + amount, '_blank');
-}
-</script>
+<div class="footer">
+  © 2025 • Mudarabah Shariah System • All Rights Reserved
+</div>
+
+</div>
 
 </body>
 </html>
